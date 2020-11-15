@@ -1,0 +1,12 @@
+/opt/Development/workspace-mono/TestSolution/MyApplication/bin/Release/MyApplication.exe
+/opt/Development/workspace-mono/TestSolution/MyApplication/bin/Release/TfhkaNet.dll
+/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Release/FiscalPrinter.csprojAssemblyReference.cache
+/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Release/FiscalPrinter.csproj.CoreCompileInputs.cache
+/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Release/FiscalPrinter.csproj.CopyComplete
+/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Release/MyApplication.exe
+/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/bin/Release/TfhkaNet.dll
+/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/obj/x86/Release/FiscalPrinter.csprojAssemblyReference.cache
+/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/obj/x86/Release/FiscalPrinter.csproj.CoreCompileInputs.cache
+/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/obj/x86/Release/FiscalPrinter.csproj.CopyComplete
+/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/bin/Release/FiscalPrinterRunner.exe
+/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/obj/x86/Release/FiscalPrinterRunner.exe

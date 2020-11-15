@@ -1,0 +1,8 @@
+/opt/Development/workspace-mono/TestSolution/MyApplication/bin/Debug/MyApplication.exe
+/opt/Development/workspace-mono/TestSolution/MyApplication/bin/Debug/MyApplication.pdb
+/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Debug/MyApplication.csprojAssemblyReference.cache
+/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Debug/MyApplication.csproj.CoreCompileInputs.cache
+/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Debug/MyApplication.exe
+/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Debug/MyApplication.pdb
+/opt/Development/workspace-mono/TestSolution/MyApplication/bin/Debug/TfhkaNet.dll
+/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Debug/MyApplication.csproj.CopyComplete

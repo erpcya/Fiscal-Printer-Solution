@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{0BF8CE11-24F1-4BF5-B8F7-ED1375C6CD2D}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Source Not Available">
+    <Files>
+      <File FileName="MyApplication/FiscalPrinter.cs" Line="5" Column="18" />
+      <File FileName="Source Not Available" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TestSolution" expanded="True">
+            <Node name="FiscalPrinter" expanded="True" selected="True">
+              <Node name="References" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
+  <MonoDevelop.Ide.ItemProperties.FiscalPrinter PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
