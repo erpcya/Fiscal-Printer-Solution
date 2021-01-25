@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalPrinter", "TheFactoryHKA\FiscalPrinter.csproj", "{0BF8CE11-24F1-4BF5-B8F7-ED1375C6CD2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalPrinter-API", "FiscalPrinter-API\FiscalPrinter-API.csproj", "{74FE0BD9-5C88-494E-961E-A0FCD0547AAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalPrinting-TFHKA", "LocalPrinting-TFHKA\LocalPrinting-TFHKA.csproj", "{209E44E0-F68B-486D-96DC-8187B41884B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,5 +17,13 @@ Global
 		{0BF8CE11-24F1-4BF5-B8F7-ED1375C6CD2D}.Debug|x86.Build.0 = Debug|x86
 		{0BF8CE11-24F1-4BF5-B8F7-ED1375C6CD2D}.Release|x86.ActiveCfg = Release|x86
 		{0BF8CE11-24F1-4BF5-B8F7-ED1375C6CD2D}.Release|x86.Build.0 = Release|x86
+		{74FE0BD9-5C88-494E-961E-A0FCD0547AAE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{74FE0BD9-5C88-494E-961E-A0FCD0547AAE}.Debug|x86.Build.0 = Debug|Any CPU
+		{74FE0BD9-5C88-494E-961E-A0FCD0547AAE}.Release|x86.ActiveCfg = Release|Any CPU
+		{74FE0BD9-5C88-494E-961E-A0FCD0547AAE}.Release|x86.Build.0 = Release|Any CPU
+		{209E44E0-F68B-486D-96DC-8187B41884B2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{209E44E0-F68B-486D-96DC-8187B41884B2}.Debug|x86.Build.0 = Debug|Any CPU
+		{209E44E0-F68B-486D-96DC-8187B41884B2}.Release|x86.ActiveCfg = Release|Any CPU
+		{209E44E0-F68B-486D-96DC-8187B41884B2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

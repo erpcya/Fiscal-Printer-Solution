@@ -1,0 +1,9 @@
+/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/bin/Debug/netstandard1.5/FiscalPrinter-API.deps.json
+/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/bin/Debug/netstandard1.5/FiscalPrinter-API.dll
+/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/bin/Debug/netstandard1.5/FiscalPrinter-API.pdb
+/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/obj/Debug/netstandard1.5/FiscalPrinter-API.csprojAssemblyReference.cache
+/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/obj/Debug/netstandard1.5/FiscalPrinter-API.AssemblyInfoInputs.cache
+/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/obj/Debug/netstandard1.5/FiscalPrinter-API.AssemblyInfo.cs
+/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/obj/Debug/netstandard1.5/FiscalPrinter-API.csproj.CoreCompileInputs.cache
+/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/obj/Debug/netstandard1.5/FiscalPrinter-API.dll
+/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/obj/Debug/netstandard1.5/FiscalPrinter-API.pdb

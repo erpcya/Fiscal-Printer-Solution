@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj": {}
+  },
+  "projects": {
+    "/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj",
+        "projectName": "FiscalPrinter-API",
+        "projectPath": "/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj",
+        "packagesPath": "/home/erp/.nuget/packages/",
+        "outputPath": "/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/erp/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard1.5"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard1.5": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard1.5": {
+          "dependencies": {
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.8.0, )"
+            },
+            "Grpc": {
+              "target": "Package",
+              "version": "[2.23.0, )"
+            },
+            "Grpc.Tools": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.23.0, )"
+            },
+            "NETStandard.Library": {
+              "target": "Package",
+              "version": "[1.6.1, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

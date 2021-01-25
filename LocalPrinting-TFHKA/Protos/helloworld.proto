@@ -1,0 +1,229 @@
+/************************************************************************************
+ * Copyright (C) 2012-2018 E.R.P. Consultores y Asociados, C.A.                     *
+ * Contributor(s): Yamel Senih ysenih@erpya.com                                     *
+ * This program is free software: you can redistribute it and/or modify             *
+ * it under the terms of the GNU General Public License as published by             *
+ * the Free Software Foundation, either version 2 of the License, or                *
+ * (at your option) any later version.                                              *
+ * This program is distributed in the hope that it will be useful,                  *
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of                   *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the                     *
+ * GNU General Public License for more details.                                     *
+ * You should have received a copy of the GNU General Public License                *
+ * along with this program.	If not, see <https://www.gnu.org/licenses/>.            *
+ ************************************************************************************/
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.helloworld";
+option java_outer_classname = "HelloWorldProto";
+option objc_class_prefix = "HLW";
+
+package helloworld;
+
+// The greeting service definition.
+service FiscalPrintService {
+	// Subscribe Printer
+	rpc subscribePrinter(Subscription) returns (stream Document) {}
+	// Subscribe Sender
+	rpc subscribeSender(Subscription) returns (stream PrinterResponse) {}
+	// Subscribe Listener
+	rpc subscribeListener(Subscription) returns (stream PrinterResponse) {}
+	// Print a Document
+	rpc printDocument(Document) returns (ResponseStatus) {}
+	// Response from Printer
+	rpc sendPrintResponse(PrinterResponse) returns (ResponseStatus) {}
+	//	Handle Monitor
+	// Response from Printer Server
+	rpc getServerStatus(ServerStatusRequest) returns (ServerStatus) {}
+	//	Response for printers detail
+	rpc getPrinterStatus(PrinterStatusRequest) returns (PrinterStatus) {}
+}
+
+// Request for status
+message ServerStatusRequest {
+	
+}
+
+// Request for printer status
+message PrinterStatusRequest {
+	string printer_name = 1;
+}
+
+// Server Status
+message ServerStatus {
+	int32 registered_printers = 1;
+	int32 active_printers = 2;
+	int32 received_documents = 3;
+	int32 processed_documents = 4;
+	int32 unprocessed_documents = 5;
+	int32 erroned_documents = 6;
+	int32 unfinded_printers = 7;
+}
+
+// Server Status
+message PrinterStatus {
+	int32 received_documents = 1;
+	int32 processed_documents = 2;
+	int32 unprocessed_documents = 3;
+	int32 erroned_documents = 4;
+	enum Availability {
+		UNKNOWN = 0;
+		ACTIVE = 1;
+		INACTIVE = 2;
+	}
+	Availability availability = 5;
+}
+
+// Print Document
+message Document {
+	string printer_name = 1;
+	string port_name = 2;
+	string document_uuid = 3;
+	enum DocumentType {
+		REPORT_X = 0;
+		REPORT_Z = 1;
+		REPORT_Z_DATE_RANGE = 2;
+		REPORT_Z_NUMBER_RANGE = 3;
+		DETAILED = 4;
+		MONTHLY =5;
+		SUMMARIZED = 6;
+		INVOICE = 7;
+		CREDIT_MEMO = 8;
+		DEBIT_MEMO = 9;
+		NON_FISCAL = 10;
+		SETUP = 11;
+	}
+	enum SetupType {
+		CUT_PAPER = 0;
+		GET_STATUS = 1;
+		OPEN_DRAWER = 2;
+		RESET_PRINTER = 3;
+		SET_TIME = 4;
+		REVERSE_INVOICE = 5;
+		REVERSE_CREDIT_MEMO = 6;
+		REVERSE_DEBIT_MEMO = 7;
+		FIRMWARE_INFORMATION = 8;
+		MEMORY_STATUS = 9;
+	}
+	SetupType setup_type = 4;
+	DocumentType document_type = 5;
+	string business_partner_name = 6;
+	string business_partner_tax_id = 7;
+	string address1 = 8;
+	string address2 = 9;
+	string address3 = 10;
+	string address4 = 11;
+	string city_name = 12;
+	string region_name = 13;
+	string country_name = 14;
+	string description = 15;
+	string document_note = 16;
+	string reversal_document_no = 17;
+	int64 reversal_document_date = 18;
+	string reversal_fiscal_printer_no = 19;
+	string po_reference_no = 20;
+	string so_reference_no = 21;
+	string sales_representative_value = 23;
+	string sales_representative_name = 24;
+	string payment_term = 25;
+	string sales_region_value = 26;
+	string sales_region_name = 27;
+	double total_lines = 28;
+	double grand_total = 29;
+	string amount_in_words = 30;
+	string document_type_name = 31;
+	//	Delivery Dates
+	string delivery_address = 32;
+	string delivery_phone = 33;
+	string warehouse_name = 34;
+	int64 document_date = 35;
+	string document_no = 36;
+	string business_partner_duns = 37;
+	int32 products_quantities = 38;
+	string pos_name = 39;
+	bool discount_printed = 40;
+	//	Document Lines
+	repeated DocumentLine document_lines = 41;
+	repeated DocumentTax document_taxes = 42;
+	//	Fiscal reports
+	int64 z_report_date_from = 43;
+	int64 z_report_date_to = 44;
+	int32 z_report_number_from = 45;
+	int32 z_report_number_to = 46;
+	DocumentType historic_document_type = 47;
+	//	Payments
+	repeated DocumentPayment document_payments = 48;
+}
+
+// Print Document Line
+message DocumentLine {
+	string document_line_uuid = 1;
+	string product_value = 2;
+	string product_name = 3;
+	string product_description = 4;
+	string product_bar_code = 5;
+	double quantity = 6;
+	double product_price_list = 7;
+	double product_price = 8;
+	double tax_rate = 9;
+	double discount = 10;
+	string line_description = 11;
+}
+
+// Print Document Taxes
+message DocumentTax {
+	string tax_value = 1;
+	string tax_name = 2;
+	double tax_base_amount = 3;
+	double tax_amount = 4;
+	double tax_rate = 5;
+}
+
+//	Payment detail for request
+message DocumentPayment {
+	string reference_no = 1;
+	string tender_type = 2;
+	string tender_type_name = 3;
+	string description = 4;
+	double amount = 5;
+	double converted_amount = 6;
+	int64 payment_date = 7;
+	string currency_code = 8;
+}
+
+// Server Status
+message ResponseStatus {
+	string result = 1;
+	enum StatusType {
+		OK = 0;
+		ERROR = 1;
+	}
+}
+
+// Subscribe
+message Subscription {
+	string printer_name = 1;
+	string listener_name = 2;
+	string description = 3;
+	enum Type {
+		PRINTER = 0;
+		SENDER = 1;
+		LISTENER = 2;
+	}
+	Type type = 4;
+}
+
+
+// Data for send from server
+message PrinterResponse {
+	string document_uuid = 1;
+	string result = 2;
+	bool is_error = 3;
+	string printer_name = 4;
+	string last_invoice_no= 5;
+	string last_credit_memo_no = 6;
+	string fiscal_printer_no = 7;
+	int64 print_date = 8;
+}
+

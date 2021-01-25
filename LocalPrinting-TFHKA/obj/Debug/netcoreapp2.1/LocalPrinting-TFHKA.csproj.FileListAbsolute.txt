@@ -1,0 +1,14 @@
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/bin/Debug/netcoreapp2.1/LocalPrinting-TFHKA.deps.json
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/bin/Debug/netcoreapp2.1/LocalPrinting-TFHKA.runtimeconfig.json
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/bin/Debug/netcoreapp2.1/LocalPrinting-TFHKA.runtimeconfig.dev.json
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/bin/Debug/netcoreapp2.1/LocalPrinting-TFHKA.dll
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/bin/Debug/netcoreapp2.1/LocalPrinting-TFHKA.pdb
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/bin/Debug/netcoreapp2.1/Greeter.dll
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/obj/Debug/netcoreapp2.1/LocalPrinting-TFHKA.csprojAssemblyReference.cache
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/obj/Debug/netcoreapp2.1/LocalPrinting-TFHKA.AssemblyInfoInputs.cache
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/obj/Debug/netcoreapp2.1/LocalPrinting-TFHKA.AssemblyInfo.cs
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/obj/Debug/netcoreapp2.1/LocalPrinting-TFHKA.csproj.CoreCompileInputs.cache
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/obj/Debug/netcoreapp2.1/LocalPrinting-TFHKA.csproj.CopyComplete
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/obj/Debug/netcoreapp2.1/LocalPrinting-TFHKA.dll
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/obj/Debug/netcoreapp2.1/LocalPrinting-TFHKA.pdb
+/Development/workspace/FiscalPrinterSolution/LocalPrinting-TFHKA/obj/Debug/netcoreapp2.1/LocalPrinting-TFHKA.genruntimeconfig.cache
