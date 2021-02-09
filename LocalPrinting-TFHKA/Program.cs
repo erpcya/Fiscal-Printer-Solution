@@ -19,76 +19,35 @@ using Helloworld;
 
 namespace LocalPrinting
 {
-  class Program
-  {
-
-    public static void Main(string[] args)
+    class Program
     {
-      Channel channel = new Channel("20.12.0.2:50043", ChannelCredentials.Insecure);
 
-      var client = new FiscalPrintService.FiscalPrintServiceClient(channel);
+        public static void Main(string[] args)
+        {
+            // Create Grpc Channel
+            Channel channel = new Channel("20.12.0.2:50043", ChannelCredentials.Insecure);
+            // Create Service
+            var client = new FiscalPrintService.FiscalPrintServiceClient(channel);
 
-      //   using (var call = client.subscribePrinter(new Subscription { PrinterName = "CAJA01" }))
-      // {
-      // foreach (var responseStream in responseStreams)
-      //{
-      //await NewMethod(call, responseStream);
-      //}
-      //await call.RequestStream.CompleteAsync();
+            // Create Printer
+            Subscription printer = new Subscription { PrinterName = "PRUEBA01", Description = "Impresora de Pruebas", Type = 0, ListenerName = "TestListener" };
 
-      //RouteSummary summary = await call.ResponseAsync;
-      //}
-      try
-      {
+            // Create Subscribe Printer
+            try
+            {
+                Console.WriteLine("Try Subscribe printer");
+                client.subscribePrinter(printer);
+            }
+            catch (RpcException e)
+            {
+                Console.WriteLine("RPC failed", e);
+                throw;
+            }
 
-        var request = client.subscribePrinter(new Subscription { PrinterName = "CAJA01" });
+            channel.ShutdownAsync().Wait();
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+        }
 
-        //Feature feature = client.GetFeature(request);
-      }
-      catch (RpcException e)
-      {
-        Console.WriteLine("RPC failed " + e);
-        throw;
-      }
-
-
-
-      //public async Task Documents(Document)
-      //{
-      //  try
-      //  {
-
-
-      //    Document request = new Document;
-
-      //    using (var call = client.subscribePrinter((Subscription)request))
-      //    {
-      //      var responseStream = call.ResponseStream;
-      //      System.Text.StringBuilder responseLog = new System.Text.StringBuilder("Result: ");
-
-      //      while (await responseStream.MoveNext())
-      //      {
-      //        var response = responseStream.Current;
-      //        responseLog.Append(response.ToString());
-      //      }
-      //      Console.WriteLine(responseLog.ToString());
-      //    }
-      //  }
-      //  catch (RpcException e)
-      //  {
-      //    Console.WriteLine("RPC failed " + e);
-      //    throw;
-      //  }
-      //}
-
-
-      //var reply =  client.subscribePrinter(new );
-      //Console.WriteLine("Greeting: " + request.ResponseStream);
-
-      channel.ShutdownAsync().Wait();
-      //Console.WriteLine("Press any key to exit...");
-      // Console.ReadKey();
     }
-
-  }
 }
