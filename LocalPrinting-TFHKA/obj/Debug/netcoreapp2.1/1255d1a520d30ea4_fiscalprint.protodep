@@ -1,0 +1,2 @@
+obj/Debug/netcoreapp2.1/Fiscalprint.cs \
+obj/Debug/netcoreapp2.1/FiscalprintGrpc.cs: Protos/fiscalprint.proto

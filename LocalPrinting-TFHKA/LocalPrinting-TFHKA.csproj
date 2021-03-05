@@ -10,12 +10,9 @@
     <PackageReference Include="Google.Protobuf" Version="3.8.0" />
     <PackageReference Include="Grpc.Tools" Version="2.23.0" />
   </ItemGroup>       
-        
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="Heloworld">
-      <HintPath>Libs\Greeter.dll</HintPath>
-    </Reference>
-  </ItemGroup>    
+    <Protobuf Include="Protos\fiscalprint.proto" GrpcServices="Client" />
+  </ItemGroup>        
 
 </Project>

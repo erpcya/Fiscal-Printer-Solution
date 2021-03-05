@@ -10,8 +10,7 @@
         "dependencies": {
           "Google.Protobuf": "3.8.0",
           "Grpc": "2.23.0",
-          "Grpc.Tools": "2.23.0",
-          "Greeter": "1.0.0.0"
+          "Grpc.Tools": "2.23.0"
         },
         "runtime": {
           "LocalPrinting-TFHKA.dll": {}
@@ -89,15 +88,7 @@
         }
       },
       "Grpc.Tools/2.23.0": {},
-      "System.Memory/4.5.3": {},
-      "Greeter/1.0.0.0": {
-        "runtime": {
-          "Greeter.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      }
+      "System.Memory/4.5.3": {}
     }
   },
   "libraries": {
@@ -147,11 +138,6 @@
       "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "path": "system.memory/4.5.3",
       "hashPath": "system.memory.4.5.3.nupkg.sha512"
-    },
-    "Greeter/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

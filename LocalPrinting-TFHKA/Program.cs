@@ -15,7 +15,7 @@
 using System;
 using System.Threading.Tasks;
 using Grpc.Core;
-using Helloworld;
+using GrpcFiscalPrint;
 
 namespace LocalPrinting
 {
@@ -25,25 +25,24 @@ namespace LocalPrinting
         public static void Main(string[] args)
         {
             // Create Grpc Channel
-            Channel channel = new Channel("20.12.0.2:50043", ChannelCredentials.Insecure);
-            // Create Service
-            var client = new FiscalPrintService.FiscalPrintServiceClient(channel);
-
-            // Create Printer
-            Subscription printer = new Subscription { PrinterName = "PRUEBA01", Description = "Impresora de Pruebas", Type = 0, ListenerName = "TestListener" };
-
-            // Create Subscribe Printer
+            Channel channel = new Channel("localhost:50043",
+                                          ChannelCredentials.Insecure);
             try
             {
-                Console.WriteLine("Try Subscribe printer");
-                client.subscribePrinter(printer);
-            }
+               // Create Grpc Client
+               var client = new GrpcFiscalPrint.FiscalPrintService.FiscalPrintServiceClient(channel);               
+               Subscription printer = new Subscription { PrinterName = "PRUEBA01", Description = "Impresora de Pruebas", Type = 0, ListenerName = "TestListener" };               
+               Console.WriteLine("Try Subscribe printer");
+               // Subscribe Printer to Server
+               var reply = client.subscribePrinter(printer);
+               Console.WriteLine(reply.ResponseHeadersAsync.Status);                                          
+            }        
             catch (RpcException e)
             {
                 Console.WriteLine("RPC failed", e);
                 throw;
-            }
-
+            }    
+                    
             channel.ShutdownAsync().Wait();
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();

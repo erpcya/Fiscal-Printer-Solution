@@ -1,0 +1,2 @@
+obj/Debug/netstandard1.5/Fiscalprint.cs \
+obj/Debug/netstandard1.5/FiscalprintGrpc.cs: protos/fiscalprint.proto
