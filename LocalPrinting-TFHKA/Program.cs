@@ -66,6 +66,7 @@ namespace FiscalPrintTest
                         document = streamReader.Current;
                         Console.WriteLine($"Received: {document}");
                         await SendResponseServer(request, document);
+
                     }
                 }
                 catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled)
@@ -86,32 +87,38 @@ namespace FiscalPrintTest
                     if (document.SetupType.Equals(Document.Types.SetupType.GetStatus))
                     {
                         request.Result = "OK Status";
-                        await client.sendPrintResponseAsync(request);
+                        Log(request.Result);
+                        client.sendPrintResponseAsync(request);
                     }
                     else if (document.SetupType.Equals(Document.Types.SetupType.OpenDrawer))
                     {
                         request.Result = "OK Open Drawer";
-                        await client.sendPrintResponseAsync(request);
+                        Log(request.Result);
+                        client.sendPrintResponseAsync(request);
                     }
                     else if (document.SetupType.Equals(Document.Types.SetupType.CutPaper))
                     {
                         request.Result = "OK CutPaper";
-                        await client.sendPrintResponseAsync(request);
+                        Log(request.Result);
+                        client.sendPrintResponseAsync(request);
                     }
                     else if (document.SetupType.Equals(Document.Types.SetupType.MemoryStatus))
                     {
                         request.Result = "OK MemoryStatus";
-                        await client.sendPrintResponseAsync(request);
+                        Log(request.Result);
+                        client.sendPrintResponseAsync(request);
                     }
                     else if (document.SetupType.Equals(Document.Types.SetupType.FirmwareInformation))
                     {
                         request.Result = "OK FirmwareInformation";
-                        await client.sendPrintResponseAsync(request);
+                        Log(request.Result);
+                        client.sendPrintResponseAsync(request);
                     }
                     else if (document.SetupType.Equals(Document.Types.SetupType.ResetPrinter))
                     {
                         request.Result = "OK ResetPrinter";
-                        await client.sendPrintResponseAsync(request);
+                        Log(request.Result);
+                        client.sendPrintResponseAsync(request);
                     }
                 }
                 else
@@ -120,11 +127,13 @@ namespace FiscalPrintTest
                     if (document.DocumentType.Equals(Document.Types.DocumentType.Invoice))
                     {
                         request.Result = "OK Invoice";
+                        Log(request.Result);
                         await client.sendPrintResponseAsync(request);
                     }
                     else if (document.DocumentType.Equals(Document.Types.DocumentType.CreditMemo))
                     {
                         request.Result = "OK CreditMemo";
+                        Log(request.Result);
                         await client.sendPrintResponseAsync(request);
                     }
                 }
@@ -149,69 +158,22 @@ namespace FiscalPrintTest
             // Enable support for unencrypted HTTP2  
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
 
-
             // Set Grpc Channel
-            var channel = GrpcChannel.ForAddress("http://20.12.0.2:50043", new GrpcChannelOptions
+            var channel = GrpcChannel.ForAddress("http://20.12.0.3:50043", new GrpcChannelOptions
             {
-                Credentials = ChannelCredentials.Insecure
+                Credentials = ChannelCredentials.Insecure,
             });
             // Set Printer parameters
             Subscription printer = new Subscription { PrinterName = "TESTPRINTER01", Description = "Impresora de Pruebas", Type = 0, ListenerName = "TestListener" };
 
             Document receivedDocument = new Document { };
-            var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(5));
+            var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(50));
             var client = new PrinterServiceClient(new FiscalPrintService.FiscalPrintServiceClient(channel));
             //await client.ReadResponses(printer, channel);
             //await client.SendResponseServer();
 
+                    await client.SubscribeToStream(printer, channel);                  
 
-            await client.SubscribeToStream(printer, channel);
-
-            //Console.WriteLine(response.SetupType.ToString());
-            // Console.WriteLine("Press any key to exit...");
-            // Console.ReadKey();
-            // channel.ShutdownAsync().Wait();
-
-            // // Funciona
-            // try
-            // {
-            //     var client1 = new FiscalPrintService.FiscalPrintServiceClient(channel);
-            // //     // Subscribe printer
-            //     using var call = client1.subscribePrinter(new Subscription(printer));
-            //     // Send Document to Server
-            //     // ResponseStatus printDocument = client1.printDocument(new Document { SetupType = Document.Types.SetupType.GetStatus });
-            //     // Get Server Status
-            //     ServerStatus statusServer = await client1.getServerStatusAsync(new ServerStatusRequest { });
-
-            //     Console.WriteLine(statusServer.ActivePrinters + "<-- Active Printers");
-
-            //     // Obtain Client Service status
-            //     Console.WriteLine(call.ResponseHeadersAsync.Status + " Status");
-
-            //     // Read Server Messages
-            //     Console.WriteLine("Starting background task to receive messages");
-
-            //      var readTask = Task.Run(async () =>
-            //      {
-            //          await foreach (var response in call.ResponseStream.ReadAllAsync())
-            //          {                        
-            //              //Console.WriteLine(response.SetupType);
-            // //             //Console.WriteLine(response.SetupType.ToString());
-            //               if (response.SetupType.Equals(Document.Types.SetupType.GetStatus)){
-            //                   Console.WriteLine("Send Response");
-            //               await client1.sendPrintResponseAsync(new PrinterResponse { Result = "OK" , IsError = false, PrinterName = "TESTPRINTER01" });
-            //               }
-            //          }
-            //      });
-            //      await readTask;
-
-            // }
-            // catch (RpcException e)
-            // {
-            //     Console.WriteLine("RPC failed", e);
-            //     channel.ShutdownAsync().Wait();
-            // }
-            // //  // Funciona
         }
     }
 }
