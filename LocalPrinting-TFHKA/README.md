@@ -25,7 +25,7 @@
     # Build Project
     dotnet build
     # Run application
-    dotnet run
+    dotnet run LocalPrinting-TFHKA.csproj
 ~~~
 
 ## Run project
@@ -33,5 +33,5 @@
  # Open vscode terminal and execute folowing commands
 
     # Run application
-    dotnet run
+    dotnet run LocalPrinting-TFHKA.csproj
 ~~~
