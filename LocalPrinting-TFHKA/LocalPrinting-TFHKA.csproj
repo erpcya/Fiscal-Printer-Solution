@@ -12,4 +12,10 @@
   <ItemGroup>
     <Protobuf Include="Protos/fiscalprint.proto" GrpcServices="Client" Link="Protos/fiscalprint.proto" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="TfhkaNet">
+      <HintPath>/Libs/TfhkaNet.dll</HintPath>
+  </Reference>
+</ItemGroup>
+
 </Project>
