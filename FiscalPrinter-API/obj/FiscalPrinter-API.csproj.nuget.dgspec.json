@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj": {}
+    "/opt/Development/workspace-mono/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj": {}
   },
   "projects": {
-    "/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj": {
+    "/opt/Development/workspace-mono/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj",
+        "projectUniqueName": "/opt/Development/workspace-mono/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj",
         "projectName": "FiscalPrinter-API",
-        "projectPath": "/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj",
-        "packagesPath": "/home/erp/.nuget/packages/",
-        "outputPath": "/Development/workspace/FiscalPrinterSolution/FiscalPrinter-API/obj/",
+        "projectPath": "/opt/Development/workspace-mono/FiscalPrinterSolution/FiscalPrinter-API/FiscalPrinter-API.csproj",
+        "packagesPath": "/home/yamel/.nuget/packages/",
+        "outputPath": "/opt/Development/workspace-mono/FiscalPrinterSolution/FiscalPrinter-API/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/home/erp/.nuget/NuGet/NuGet.Config"
+          "/home/yamel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard1.5"
@@ -58,7 +58,7 @@
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.409/RuntimeIdentifierGraph.json"
         }
       }
     }
