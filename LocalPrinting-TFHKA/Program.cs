@@ -28,7 +28,7 @@ namespace FiscalPrintTest
             private S4PrinterData StatusS4;
             private S5PrinterData StatusS5;
             private S6PrinterData StatusS6;
-            private SVPrinterData CountryModel;
+            //private SVPrinterData CountryModel;
             public bool PrinterConnected = false;
 
             public TfhkaPrinter()
@@ -536,7 +536,7 @@ namespace FiscalPrintTest
                 }
             }
 
-            public async Task SubscribeToStream(Subscription printer, GrpcChannel channel, TfhkaPrinter fiscalPrinter)
+            public async Task SubscribeToStream(Subscription printer, GrpcChannel channel)
             {
                 var clientService = new FiscalPrintService.FiscalPrintServiceClient(channel);
                 var streamReader = clientService.subscribePrinter(new Subscription(printer)).ResponseStream;
@@ -544,11 +544,11 @@ namespace FiscalPrintTest
                 PrinterResponse request = new PrinterResponse { Result = "OK", IsError = false, PrinterName = "TESTPRINTER01" };
                 try
                 {
-                    while (true)
+                    while (await streamReader.MoveNext())
                     {
                         document = streamReader.Current;
                         Console.WriteLine($"Received: {document}");
-                        await SendResponseServer(request, document, fiscalPrinter);
+                        await SendResponseServer(request, document);
                     }
                 }
                 catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled)
@@ -561,17 +561,18 @@ namespace FiscalPrintTest
                 }
             }
 
-            public async Task SendResponseServer(PrinterResponse request, Document document, TfhkaPrinter fiscalPrinter)
+            public Task SendResponseServer(PrinterResponse request, Document document)
             {
                 if (document.DocumentType.Equals(Document.Types.DocumentType.Setup))
                 {
                     if (document.SetupType.Equals(Document.Types.SetupType.GetStatus))
                     {
-                        TfhkaNet.IF.PrinterStatus status = fiscalPrinter.FiscalPrinterGetStatus();
-                        request.Result = "Código de error: " + status.PrinterErrorCode + "\r\n" +
-                        "Mensaje de error: " + status.PrinterErrorCode + "\r\n" +
-                        "Código de Status: " + status.PrinterStatusCode + "\r\n" +
-                        "Descripción del estatus: " + status.PrinterStatusCode;
+                        /*                         TfhkaNet.IF.PrinterStatus status = fiscalPrinter.FiscalPrinterGetStatus();
+                                                request.Result = "Código de error: " + status.PrinterErrorCode + "\r\n" +
+                                                "Mensaje de error: " + status.PrinterErrorCode + "\r\n" +
+                                                "Código de Status: " + status.PrinterStatusCode + "\r\n" +
+                                                "Descripción del estatus: " + status.PrinterStatusCode; */
+                        request.Result = "OK Status";
                         client.sendPrintResponseAsync(request);
                         Log(request.Result);
 
@@ -579,25 +580,25 @@ namespace FiscalPrintTest
                     }
                     else if (document.SetupType.Equals(Document.Types.SetupType.OpenDrawer))
                     {
-                        Boolean drawer = fiscalPrinter.FiscalPrinterCheckDrawer();
+                        /*                         Boolean drawer = fiscalPrinter.FiscalPrinterCheckDrawer();
 
-                        if (drawer)
-                        {
+                                                if (drawer)
+                                                {
 
-                            Boolean isprinted = fiscalPrinter.FiscalPrinterSendCmd("0");
-                            if (isprinted)
-                            {
-                                request.Result = "GAVETA CONECTADA \r\n COMANDO APLICADO" ;
-                            }
-                            else
-                            {
-                                request.Result = "GAVETA CONECTADA \r\n COMANDO NO APLICADO" ;
-                            }
-                        }
-                        else
-                        {
-                            request.Result = "GAVETA NO CONECTADA";
-                        }
+                                                    Boolean isprinted = fiscalPrinter.FiscalPrinterSendCmd("0");
+                                                    if (isprinted)
+                                                    {
+                                                        request.Result = "GAVETA CONECTADA \r\n COMANDO APLICADO" ;
+                                                    }
+                                                    else
+                                                    {
+                                                        request.Result = "GAVETA CONECTADA \r\n COMANDO NO APLICADO" ;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    request.Result = "GAVETA NO CONECTADA";
+                                                } */
 
                         request.Result = "OK Open Drawer";
                         client.sendPrintResponseAsync(request);
@@ -642,10 +643,8 @@ namespace FiscalPrintTest
                         client.sendPrintResponseAsync(request);
                     }
                 }
-                // switch(document.SetupType){
-                //     case Document.Types.SetupType.GetStatus:
 
-                // }
+                return Task.CompletedTask;
             }
 
             private void Log(string s, params object[] args)
@@ -661,8 +660,8 @@ namespace FiscalPrintTest
         static async Task Main(string[] args)
         {
             // Enable Fiscal Printer Printer
-            var fiscalPrinter = new TfhkaPrinter();
-            fiscalPrinter.FiscalPrinterOpenPort("1");
+            /*             var fiscalPrinter = new TfhkaPrinter();
+                        fiscalPrinter.FiscalPrinterOpenPort("1"); */
 
             // Enable support for unencrypted HTTP2  
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
@@ -678,9 +677,9 @@ namespace FiscalPrintTest
             // var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(5));
             var client = new PrinterServiceClient(new FiscalPrintService.FiscalPrintServiceClient(channel));
 
-            await client.SubscribeToStream(grpcPrinter, channel, fiscalPrinter);
+            await client.SubscribeToStream(grpcPrinter, channel);
 
-            fiscalPrinter.FiscalPrinterClosePort();
+            /* fiscalPrinter.FiscalPrinterClosePort(); */
         }
     }
 }
