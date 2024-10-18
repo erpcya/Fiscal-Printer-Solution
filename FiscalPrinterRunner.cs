@@ -16,7 +16,7 @@
 using System;
 using TfhkaNet.IF;
 using TfhkaNet.IF.VE;
-namespace FiscalPrinter {
+namespace FiscalPrinterRunner {
     class Printer {
         public static void Main(string[] args) {
             if(args == null
