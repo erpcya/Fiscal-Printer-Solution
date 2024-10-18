@@ -1,5 +1,7 @@
 # Fiscal Printer Runner
 
+All docs can be downloaded from [docs](docs/)
+
 ## Install Need
 https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004-
 
