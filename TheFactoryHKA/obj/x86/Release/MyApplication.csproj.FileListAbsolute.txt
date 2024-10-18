@@ -1,5 +1,0 @@
-/opt/Development/workspace-mono/TestSolution/MyApplication/bin/Release/MyApplication.exe
-/opt/Development/workspace-mono/TestSolution/MyApplication/bin/Release/TfhkaNet.dll
-/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Release/MyApplication.csproj.CoreCompileInputs.cache
-/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Release/MyApplication.csproj.CopyComplete
-/opt/Development/workspace-mono/TestSolution/MyApplication/obj/x86/Release/MyApplication.exe

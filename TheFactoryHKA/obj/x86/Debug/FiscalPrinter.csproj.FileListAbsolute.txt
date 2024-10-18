@@ -1,7 +1,0 @@
-/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/bin/Debug/MyApplication.exe
-/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/bin/Debug/MyApplication.pdb
-/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/bin/Debug/TfhkaNet.dll
-/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/obj/x86/Debug/FiscalPrinter.csproj.CoreCompileInputs.cache
-/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/obj/x86/Debug/FiscalPrinter.csproj.CopyComplete
-/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/obj/x86/Debug/MyApplication.exe
-/opt/Development/workspace-mono/FiscalPrinterSolution/TheFactoryHKA/obj/x86/Debug/MyApplication.pdb
